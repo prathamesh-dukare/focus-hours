@@ -1,5 +1,6 @@
 .app {
     margin: 20px;
+    max-width: 400px;
 }
   
 .app__heading {
@@ -9,22 +10,80 @@
 
 .block__websites {
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
     margin: 10px 0;
 }
-.block__websites-name {
-    width: 80px;
-    padding: 5px;
+
+.block__website {
+    display: flex;
+    flex-direction: row;
+    min-width: 80px;
+    padding: 3px 10px;
     border-radius: 15px;
     cursor: pointer;
     background: transparent;
     border: 1px solid black;
     text-transform: capitalize;
+    font-size: 14px;
+    z-index: 999;
 }
 
-.block__add-btn {
+.selected {
+    color: white;
+    background: #0C49BF;
+    border: 1px solid #0C49BF;
+}
+
+.link-icon {
+    z-index: 1
+}
+ .link-name {
+    margin: 0 7px;
+    font-weight: 500;
+}
+
+.block__website .link-remove {
+    opacity: 0;
+    transition: all .4s ease-in-out;
+}
+
+.block__website:hover .link-remove {
+    opacity: 1;
+
+}
+
+.block__add-toggle {
     color: #0C49BF;
     background-color: transparent;
     border: none;
     cursor: pointer;
+}
+
+.block__input-form {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.block__input-text {
+    width: 200px;
+    padding: 3px 8px;
+    border: 1px solid #0C49BF;
+    border-radius: 5px;
+    outline: none;
+}
+
+.block__input-btn {
+    display: flex;
+    gap: 10px;
+}
+
+.block__add-btn {
+    color: white;
+    background-color: #0C49BF;
+    border: none;
+    cursor: pointer;
+    padding: 3px 10px;
+    border-radius: 5px;
 }
