@@ -7,7 +7,7 @@ const App = () => {
       <h2 className='app__heading'>Focus Hours</h2>
       <Block />
       <Redirect />
-      <p>version 1.0</p>
+      <p className='app__footer'>version 1.0</p>
     </div>
   );
 }
