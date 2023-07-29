@@ -25,19 +25,24 @@
 
 .block__website {
     display: flex;
+    position: relative;
+}
+.block__website button  {
+    display: flex;
     flex-direction: row;
     /* min-width: 80px; */
     padding: 3px 7px;
+    padding-right: 15px;
     border-radius: 10px;
     cursor: pointer;
     background: transparent;
     border: 1px solid black;
     text-transform: capitalize;
     font-size: 10px;
-    z-index: 999;
+    /* z-index: 999; */
 }
 
-.selected {
+.selected button {
     color: white;
     background: #0C49BF;
     border: 1px solid #0C49BF;
@@ -53,12 +58,24 @@
 }
 
 .link-remove {
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    right: 7px;
     width: 10px;
 }
 
-.block__website .link-remove {
+.selected .link-remove {
+    color: white;
+}
+
+.link-remove svg {
+    width: 7px;
+}
+
+.link-remove {
     opacity: 0;
-    transition: all .4s ease-in-out;
+    transition: opacity .4s ease-in-out;
 }
 
 .block__website:hover .link-remove {

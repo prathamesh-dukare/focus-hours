@@ -8,7 +8,8 @@ chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
     var redirectUrl = redirectUrlList[getRandomNumber(redirectUrlList.length)]; // Replace with your desired redirect URL
     console.log(redirectUrl);
     var url = new URL(details.url);
-    var domain = url.hostname;
+    var domain = url.replace(/.+\/\/|www.|\..+/g, '')
+    console.log(url, domain);
     if (blockedDomains.includes(domain)) {
       chrome.tabs.update(details.tabId, { url: redirectUrl });
     }
