@@ -10,14 +10,20 @@ const Block = () => {
 
   const addBlockSite = (e) => {
     e.preventDefault();
-    const itemExists = localUrls.some(item => item === input)
     if (input) {
-      if (!itemExists) {
-        setLocalUrls([...localUrls, input])
+      try {
+        const inputUrl = new URL(input);
+        const hostname = inputUrl.hostname
+        const url = hostname.replace(/.+\/\/|www.|\..+/g, '')
+        const itemExists = localUrls.some(item => item === hostname)
+        if (itemExists) {
+          return window.alert("Website already exist!")
+        }
+        setLocalUrls([...localUrls, url])
         setInput("")
-      }
-      else {
-        window.alert('Website already added')
+      } catch (error) {
+        window.alert("Please enter a valid URL")
+        console.log(error)
       }
     }
   }
@@ -58,7 +64,7 @@ const Block = () => {
               key={index}
               onClick={() => handleItemSelect(index)}>
               <span className='link-icon'><FontAwesomeIcon icon={faLink} /></span>
-              <span className='link-name'  >{url = url.replace(/.+\/\/|www.|\..+/g, '')}</span>
+              <span className='link-name'  >{url.replace(/.+\/\/|www.|\..+/g, '')}</span>
             </button>
             <span className='link-remove'><FontAwesomeIcon onClick={() => removeUrl(index)} icon={faXmark} /></span>
           </div>
@@ -69,7 +75,6 @@ const Block = () => {
         setInput={setInput}
         addSite={addBlockSite}
       />
-
     </div>
   )
 }

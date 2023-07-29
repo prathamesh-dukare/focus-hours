@@ -25,12 +25,11 @@
 
 .block__website {
     display: flex;
-    position: relative;
 }
-.block__website button  {
+
+.block__website button {
     display: flex;
     flex-direction: row;
-    /* min-width: 80px; */
     padding: 3px 7px;
     padding-right: 15px;
     border-radius: 10px;
@@ -39,7 +38,6 @@
     border: 1px solid black;
     text-transform: capitalize;
     font-size: 10px;
-    /* z-index: 999; */
 }
 
 .selected button {
@@ -58,29 +56,26 @@
 }
 
 .link-remove {
-    position: absolute;
     z-index: 3;
+    display: flex;
+    align-items: center;
     cursor: pointer;
-    right: 7px;
     width: 10px;
+    margin-left: -14px;
+    opacity: 0;
+    transition: opacity .4s ease-in-out;
 }
 
 .selected .link-remove {
     color: white;
 }
 
-.link-remove svg {
-    width: 7px;
-}
-
-.link-remove {
-    opacity: 0;
-    transition: opacity .4s ease-in-out;
-}
-
 .block__website:hover .link-remove {
     opacity: 1;
+}
 
+.link-remove svg {
+    width: 7px;
 }
 
 .block__add-toggle {
@@ -131,11 +126,10 @@
 }
 
 .redirect {
-   display: flex;
-   flex-direction: column;
-   overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
-
 
 .redirect__title {
     font-size: 12px;
@@ -149,13 +143,13 @@
     gap: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-    -ms-overflow-style: none;  
+    -ms-overflow-style: none;
     scrollbar-width: none;
-    
 }
 
-.redirect__content::-webkit-scrollbar { 
-    display: none;  /* Safari and Chrome */
+.redirect__content::-webkit-scrollbar {
+    display: none;
+    /* Safari and Chrome */
 }
 
 .redirect-links {
