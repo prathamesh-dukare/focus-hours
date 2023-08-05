@@ -15,7 +15,7 @@ const Block = () => {
         const inputUrl = new URL(input);
         const hostname = inputUrl.hostname
         const url = hostname.replace(/.+\/\/|www.|\..+/g, '')
-        const itemExists = localUrls.some(item => item === hostname)
+        const itemExists = localUrls.some(item => item === url)
         if (itemExists) {
           return window.alert("Website already exist!")
         }
@@ -23,7 +23,6 @@ const Block = () => {
         setInput("")
       } catch (error) {
         window.alert("Please enter a valid URL")
-        console.log(error)
       }
     }
   }
@@ -40,11 +39,9 @@ const Block = () => {
   const handleItemSelect = (itemId) => {
     const itemExists = selectedItems.some(item => item === localUrls[itemId])
     if (itemExists) {
-      console.log("item present")
       const updatedItems = selectedItems.filter(item => item !== localUrls[itemId]);
       setSelectedItems(updatedItems);
     } else {
-      console.log("not present")
       const selectedItem = localUrls.find(item => item === localUrls[itemId]);
       setSelectedItems([...selectedItems, selectedItem]);
     }

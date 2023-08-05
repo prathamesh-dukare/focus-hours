@@ -5,14 +5,21 @@ import InputHandler from './InputHandler';
 
 const Redirect = () => {
   const [input, setInput] = useState('')
-  const [editedUrl, setEditedUrl] = useState('')
+  const [editedUrlIndex, setEditedUrlIndex] = useState('')
   const [redirects, setRedirects] = useState(JSON.parse(localStorage.getItem('redirects') || '[]'));
+  const [editedUrl, setEditedUrl] = useState('')
 
   const addRedirect = (e) => {
     e.preventDefault();
     if (input) {
-      setRedirects([...redirects, input])
-      setInput("")
+      try {
+        const inputUrl = new URL(input);
+        const url = inputUrl.href
+        setRedirects([...redirects, url])
+        setInput("")
+      } catch (error) {
+        window.alert("Please enter a valid URL")
+      }
     }
   }
 
@@ -26,11 +33,22 @@ const Redirect = () => {
 
   const editUrl = (index) => {
     const newUrl = redirects.find(url => url === redirects[index])
-    console.log(newUrl)
+    setEditedUrl(newUrl)
+    setEditedUrlIndex(index)
+  }
 
-    setInput(newUrl)
-    setEditedUrl(index)
-    console.log(editedUrl)
+  const addEditedUrl = () => {
+    if (editedUrl) {
+      let newArr = [...redirects];
+      newArr[editedUrlIndex] = editedUrl;
+      setRedirects(newArr);
+      setEditedUrl("");
+      setEditedUrlIndex(-1)
+    }
+  }
+
+  const handleClose = () => {
+    setEditedUrlIndex(-1)
   }
 
   return (
@@ -40,11 +58,25 @@ const Redirect = () => {
         {redirects.map((redirect, index) => (
           <div className='redirect-links' key={index}>
             <FontAwesomeIcon icon={faLink} />
-            <p>{redirect}</p>
-            <div className='redirect-btns'>
-              <FontAwesomeIcon icon={faPen} className='edit-btn' onClick={() => editUrl(index)} />
-              <FontAwesomeIcon icon={faTrash} className='delete-btn' onClick={() => removeUrl(index)} />
-            </div>
+            {index === editedUrlIndex ?
+              <>
+                <input
+                  type="text"
+                  value={editedUrl}
+                  onChange={e => setEditedUrl(e.target.value)}
+                  autoFocus spellCheck='false' />
+                <div className="redirect-btns">
+                  <button className='block__add-btn' onClick={addEditedUrl}>Add</button>
+                  <i className="fa-regular fa-circle-xmark" onClick={handleClose}></i>
+                </div>
+              </> :
+              <>
+                <p>{redirect}</p>
+                <div className='redirect-btns'>
+                  <FontAwesomeIcon icon={faPen} className='edit-btn' onClick={() => editUrl(index)} />
+                  <FontAwesomeIcon icon={faTrash} className='delete-btn' onClick={() => removeUrl(index)} />
+                </div>
+              </>}
           </div>
         ))}
       </div>

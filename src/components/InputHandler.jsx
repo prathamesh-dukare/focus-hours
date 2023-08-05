@@ -22,6 +22,7 @@ const InputHandler = ({ input, setInput, addSite }) => {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
+              spellCheck='false'
               className='block__input-text'
               placeholder='Enter a valid website' />
             <div className="block__input-btn">

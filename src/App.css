@@ -77,11 +77,15 @@
 .link-remove svg {
     width: 7px;
 }
+.block__add {
+    line-height: 19px;
+}
 
 .block__add-toggle {
     font-size: 10px;
     color: #0C49BF;
     cursor: pointer;
+    display: inline;
 }
 
 .block__input-form {
@@ -161,6 +165,19 @@
     font-size: 10px;
     margin: 0 10px;
     width: 100%;
+    word-break: break-all;
+}
+
+.redirect-links input {
+    font-size: 8px;
+    margin: 0 10px;
+    width: 100%;
+    padding: 0 8px;
+    border: 1px solid #0C49BF;
+    border-radius: 5px;
+    outline: none;
+    height: 19px;
+    font-weight: 400;
 }
 
 .redirect-btns {
@@ -174,6 +191,13 @@
 
 .edit-btn {
     color: #0C49BF;
+    cursor: pointer;
+}
+
+.block__edit-btn {
+    background: transparent;
+    border: none;
+    outline: none;
 }
 
 .delete-btn {
