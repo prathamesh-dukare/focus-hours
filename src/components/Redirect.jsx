@@ -1,3 +1,4 @@
+/* global chrome */
 import { faLink, faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react'
@@ -6,7 +7,7 @@ import InputHandler from './InputHandler';
 const Redirect = () => {
   const [input, setInput] = useState('')
   const [editedUrlIndex, setEditedUrlIndex] = useState('')
-  const [redirects, setRedirects] = useState(JSON.parse(localStorage.getItem('redirects') || '[]'));
+  const [redirects, setRedirects] = useState([]);
   const [editedUrl, setEditedUrl] = useState('')
 
   const addRedirect = (e) => {
@@ -18,13 +19,22 @@ const Redirect = () => {
         setRedirects([...redirects, url])
         setInput("")
       } catch (error) {
-        window.alert("Please enter a valid URL")
+        alert("Please enter a valid URL")
       }
     }
   }
 
   useEffect(() => {
-    localStorage.setItem('redirects', JSON.stringify(redirects))
+    chrome.storage.sync.get(['redirects']).then((result) => {
+      console.log("get redirects", result.redirects);
+      setRedirects(result.redirects);
+    })
+  }, [])
+
+  useEffect(() => {
+    chrome.storage.sync.set({ redirects }).then(() => {
+      console.log(redirects);
+    })
   }, [redirects])
 
   const removeUrl = (index) => {
