@@ -10,10 +10,4 @@
 html,
 body {
   width: 300px;
-  max-height: 350px;
-  
-}
-
-svg {
-  width: 15px;
 }

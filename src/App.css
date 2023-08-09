@@ -3,7 +3,6 @@
     flex-direction: column;
     padding: 15px 20px;
     border-radius: 5px;
-    max-height: 350px;
 }
 
 .app__heading {
@@ -46,8 +45,8 @@
     border: 1px solid #0C49BF;
 }
 
-.link-icon {
-    z-index: 1
+svg {
+    width: 15px;
 }
 
 .link-name {
@@ -56,11 +55,9 @@
 }
 
 .link-remove {
-    z-index: 3;
     display: flex;
     align-items: center;
     cursor: pointer;
-    width: 10px;
     margin-left: -14px;
     opacity: 0;
     transition: opacity .4s ease-in-out;
@@ -77,9 +74,6 @@
 .link-remove svg {
     width: 7px;
 }
-.block__add {
-    line-height: 19px;
-}
 
 .block__add-toggle {
     font-size: 10px;
@@ -90,13 +84,13 @@
 
 .block__input-form {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     gap: 5px;
 }
 
 .block__input-text {
     font-size: 8px;
-    width: 200px;
+    width: 100%;
     height: 19px;
     padding: 0 8px;
     border: 1px solid #0C49BF;
@@ -130,16 +124,11 @@
 
 .block__close .fa-circle-xmark {
     font-size: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
 }
 
 .redirect {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
 }
 
 .redirect__title {
