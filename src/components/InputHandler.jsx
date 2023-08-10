@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const InputHandler = ({ input, setInput, addSite }) => {
+const InputHandler = ({ title, input, setInput, addSite }) => {
   const [show, setShow] = useState(true);
 
   const toggleShow = () => {
@@ -13,7 +13,7 @@ const InputHandler = ({ input, setInput, addSite }) => {
         <p
           className='block__add-toggle'
           onClick={toggleShow}>
-          + Add a website
+          + Add a {title}
         </p>
       ) : (
         <div className='block__input'>

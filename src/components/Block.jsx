@@ -39,7 +39,7 @@ const Block = () => {
       setBlockedUrls(result.blockedUrls)
     })
   }, [])
- 
+
   useEffect(() => {
     chrome.storage.sync.set({ localUrls }).then(() => {
       console.log("set local", localUrls);
@@ -86,6 +86,7 @@ const Block = () => {
         )}
       </div>
       <InputHandler
+        title="website"
         input={input}
         setInput={setInput}
         addSite={addBlockSite}

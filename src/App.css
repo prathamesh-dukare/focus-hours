@@ -143,6 +143,14 @@ svg {
     gap: 10px;
 }
 
+.redirect__content .no-link {
+    color: #8D8D8D;
+    text-align: center;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+}
+
 .redirect-links {
     display: flex;
     align-items: center;
