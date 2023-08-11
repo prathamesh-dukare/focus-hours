@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Domain Redirector",
-  "description": "Domain Redirector is a powerful extension that allows you to redirect blocked websites to URLs of your choice.",
+  "name": "Focus Hours",
+  "description": "Focus Hours is a powerful extension that allows you to redirect blocked websites to URLs of your choice.",
   "version": "1.0",
   "permissions": ["webNavigation", "tabs", "storage"],
   "background": {

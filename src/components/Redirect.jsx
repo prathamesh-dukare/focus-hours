@@ -25,14 +25,14 @@ const Redirect = () => {
   }
 
   useEffect(() => {
-    chrome.storage.sync.get(['redirects']).then((result) => {
+    chrome.storage.sync.get({'redirects': [] }).then((result) => {
       console.log("get redirects", result.redirects);
       setRedirects(result.redirects);
     })
   }, [])
 
   useEffect(() => {
-    chrome.storage.sync.set({ redirects }).then(() => {
+    chrome.storage.sync.set({ 'redirects': redirects }).then(() => {
       console.log(redirects);
     })
   }, [redirects])
@@ -65,7 +65,7 @@ const Redirect = () => {
     <div className='redirect'>
       <p className='redirect__title'>Currently redirecting to</p>
       <div className='redirect__content'>
-        {redirects.length === 0 ? <p className='no-link'>No redirect link has been added yet</p> : (
+        {redirects?.length === 0 ? <p className='no-link'>No redirect link has been added yet</p> : (
           redirects.map((redirect, index) => (
             <div className='redirect-links' key={index}>
               <FontAwesomeIcon icon={faLink} />

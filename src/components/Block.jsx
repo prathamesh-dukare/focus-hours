@@ -29,19 +29,19 @@ const Block = () => {
   }
 
   useEffect(() => {
-    chrome.storage.sync.get(['localUrls']).then((result) => {
+    chrome.storage.sync.get({'localUrls': []}).then((result) => {
       console.log("get local", result.localUrls)
       setLocalUrls(result.localUrls)
     })
 
-    chrome.storage.sync.get(['blockedUrls']).then((result) => {
+    chrome.storage.sync.get({'blockedUrls': []}).then((result) => {
       console.log("get blocked", result.blockedUrls)
       setBlockedUrls(result.blockedUrls)
     })
   }, [])
 
   useEffect(() => {
-    chrome.storage.sync.set({ localUrls }).then(() => {
+    chrome.storage.sync.set({ 'localUrls': localUrls }).then(() => {
       console.log("set local", localUrls);
     })
   }, [localUrls]);
@@ -63,7 +63,7 @@ const Block = () => {
   };
 
   useEffect(() => {
-    chrome.storage.sync.set({ blockedUrls }).then(() => {
+    chrome.storage.sync.set({ 'blockedUrls': blockedUrls }).then(() => {
       console.log("set blocked", blockedUrls);
     })
   }, [blockedUrls])
@@ -72,7 +72,7 @@ const Block = () => {
     <div className='block'>
       <p className='block__heading'>Which websites do you want to block?</p>
       <div className="block__websites">
-        {localUrls.map((url, index) =>
+        {localUrls?.map((url, index) =>
           <div className={blockedUrls.some(item => item === localUrls[index]) ? 'selected block__website' : 'block__website'} key={index}>
             <button
               key={index}
