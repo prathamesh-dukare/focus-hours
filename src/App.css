@@ -46,6 +46,7 @@
 }
 
 svg {
+    font-size: 15px;
     width: 15px;
 }
 
@@ -84,15 +85,13 @@ svg {
 
 .block__input-form {
     display: flex;
-    align-items: center;
-    gap: 5px;
+    gap: 10px;
 }
 
 .block__input-text {
     font-size: 12px;
     width: 100%;
-    height: 23px;
-    padding: 0 8px;
+    padding: 4px 8px;
     border: 1px solid #0C49BF;
     border-radius: 5px;
     outline: none;
@@ -109,7 +108,7 @@ svg {
     background-color: #0C49BF;
     border: none;
     cursor: pointer;
-    padding: 2px 7px;
+    padding: 3px 9px;
     border-radius: 5px;
 }
 
@@ -166,11 +165,10 @@ svg {
     font-size: 12px;
     margin: 0 10px;
     width: 100%;
-    padding: 0 8px;
+    padding: 3px 8px;
     border: 1px solid #0C49BF;
     border-radius: 5px;
     outline: none;
-    height: 23px;
     font-weight: 400;
 }
 
