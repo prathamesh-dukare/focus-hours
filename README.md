@@ -14,19 +14,27 @@ The Focus Hours Chrome Extension is a productivity tool that empowers you to mai
 To install the Focus Hours Chrome Extension, adhere to the instructions provided below:
 
 1. Clone the repository or download the code:
+
    - Clone the repository using Git by executing the subsequent command in your terminal:
-     
+
      git clone https://github.com/rohitjuyal21/focushours.git
-     
+
    - Alternatively, you can download the code as a ZIP file by clicking the "Download" button on the repository page and subsequently extracting the contents into a local directory.
 
-2. Launch the Google Chrome browser and enter `chrome://extensions` in the address bar.
+2. Build the extension code by running the following command in the terminal:
 
-3. Activate the "Developer mode" option located in the upper-right corner of the page.
+   ```
+   npm install
+   npm run build
+   ```
 
-4. Click on the "Load unpacked" button, and choose the directory where you cloned or extracted the extension's code.
+3. Launch the Google Chrome browser and enter `chrome://extensions` in the address bar.
 
-5. Following the selection, the Focus Hours Chrome Extension will be installed and will be at your disposal for use.
+4. Activate the "Developer mode" option located in the upper-right corner of the page.
+
+5. Click on the "Load unpacked" button, and choose the build directory where you cloned or extracted the extension's code.
+
+6. Following the selection, the Focus Hours Chrome Extension will be installed and will be at your disposal for use.
 
 ## Usage
 
@@ -44,7 +52,6 @@ To install the Focus Hours Chrome Extension, adhere to the instructions provided
 
 7. Adjustments made to the block list and redirect links are automatically saved and take effect instantly.
 
-
 ## License
 
 The Focus Hours Chrome Extension is issued under the [MIT License](LICENSE). You are encouraged to modify and distribute the extension in accordance with the terms of this license.
@@ -52,4 +59,3 @@ The Focus Hours Chrome Extension is issued under the [MIT License](LICENSE). You
 ## Disclaimer
 
 The Focus Hours Chrome Extension is a utility designed to bolster productivity and concentration. However, the user bears the ultimate responsibility for time management and prudent use of the extension. The extension does not guarantee complete elimination of distractions, and its efficacy may fluctuate based on individual circumstances.
-
