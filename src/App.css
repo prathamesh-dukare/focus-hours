@@ -1,206 +1,217 @@
 .app {
-    display: flex;
-    flex-direction: column;
-    padding: 15px 20px;
-    border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  border-radius: 5px;
 }
 
 .app__heading {
-    font-size: 24px;
-    color: #0C49BF;
-    margin-bottom: 10px;
+  font-size: 24px;
+  color: #0c49bf;
+  margin-bottom: 10px;
 }
 
 .block__heading {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .block__websites {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
 }
 
 .block__website {
-    display: flex;
+  display: flex;
 }
 
 .block__website button {
-    display: flex;
-    flex-direction: row;
-    padding: 3px 7px;
-    padding-right: 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid black;
-    text-transform: capitalize;
-    font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  padding: 3px 7px;
+  padding-right: 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid black;
+  text-transform: capitalize;
+  font-size: 14px;
 }
 
 .selected button {
-    color: white;
-    background: #0C49BF;
-    border: 1px solid #0C49BF;
+  color: white;
+  background: #0c49bf;
+  border: 1px solid #0c49bf;
 }
 
 svg {
-    font-size: 15px;
-    width: 15px;
+  font-size: 15px;
+  width: 15px;
 }
 
 .link-name {
-    margin: 0 4px;
-    font-weight: 400;
+  margin: 0 4px;
+  font-weight: 400;
 }
 
 .link-remove {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    margin-left: -14px;
-    opacity: 0;
-    transition: opacity .4s ease-in-out;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: -14px;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .selected .link-remove {
-    color: white;
+  color: white;
 }
 
 .block__website:hover .link-remove {
-    opacity: 1;
+  opacity: 1;
 }
 
 .link-remove svg {
-    width: 8px;
+  width: 8px;
 }
 
 .block__add-toggle {
-    font-size: 14px;
-    color: #0C49BF;
-    cursor: pointer;
-    display: inline;
+  font-size: 14px;
+  color: #0c49bf;
+  cursor: pointer;
+  display: inline;
 }
 
 .block__input-form {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .block__input-text {
-    font-size: 12px;
-    width: 100%;
-    padding: 4px 8px;
-    border: 1px solid #0C49BF;
-    border-radius: 5px;
-    outline: none;
+  font-size: 12px;
+  width: 100%;
+  padding: 4px 8px;
+  border: 1px solid #0c49bf;
+  border-radius: 5px;
+  outline: none;
 }
 
 .block__input-btn {
-    display: flex;
-    gap: 5px;
+  display: flex;
+  gap: 5px;
 }
 
 .block__add-btn {
-    font-size: 14px;
-    color: white;
-    background-color: #0C49BF;
-    border: none;
-    cursor: pointer;
-    padding: 3px 9px;
-    border-radius: 5px;
+  font-size: 14px;
+  color: white;
+  background-color: #0c49bf;
+  border: none;
+  cursor: pointer;
+  padding: 3px 9px;
+  border-radius: 5px;
 }
 
 .block__close {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .fa-circle-xmark {
-    cursor: pointer;
-    font-size: 16px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
 .redirect {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .redirect__title {
-    font-size: 16px;
-    margin-top: 10px;
+  font-size: 16px;
+  margin-top: 10px;
+}
+.redirect_url {
+  background: #e1e1e1;
+  border-radius: 4px;
+  padding: 1px 7px;
 }
 
 .redirect__content {
-    margin: 10px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .redirect__content .no-link {
-    color: #8D8D8D;
-    text-align: center;
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
+  color: #8d8d8d;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
 }
 
 .redirect-links {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .redirect-links p {
-    font-size: 14px;
-    margin: 0 10px;
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  font-size: 14px;
+  margin: 0 10px;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .redirect-links input {
-    font-size: 12px;
-    margin: 0 10px;
-    width: 100%;
-    padding: 3px 8px;
-    border: 1px solid #0C49BF;
-    border-radius: 5px;
-    outline: none;
-    font-weight: 400;
+  font-size: 12px;
+  margin: 0 10px;
+  width: 100%;
+  padding: 3px 8px;
+  border: 1px solid #0c49bf;
+  border-radius: 5px;
+  outline: none;
+  font-weight: 400;
+}
+.error_item {
+  position: relative;
+  left: 3rem;
+  color: red;
+  padding: 3px 0px;
 }
 
 .redirect-btns {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .redirect-btns svg {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .edit-btn {
-    color: #0C49BF;
-    cursor: pointer;
+  color: #0c49bf;
+  cursor: pointer;
 }
 
 .block__edit-btn {
-    background: transparent;
-    border: none;
-    outline: none;
+  background: transparent;
+  border: none;
+  outline: none;
 }
 
 .delete-btn {
-    color: #F50909;
+  color: #f50909;
 }
 
 .app__footer {
-    color: #0C49BF;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
-    margin-top: 10px;
+  color: #0c49bf;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 10px;
 }
