@@ -19,7 +19,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
 
       const url = new URL(details.url);
       const domain = url.hostname;
-      localUrls.forEach((element) => {
+      blockedUrls.forEach((element) => {
         if (domain.includes(element)) {
           console.log("Blocked site", domain);
           chrome.tabs.update(details.tabId, { url: redirectUrl });
