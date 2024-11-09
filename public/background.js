@@ -19,14 +19,27 @@ chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
 
       const url = new URL(details.url);
       const domain = url.hostname;
-      blockedUrls.forEach((element) => {
-        chrome.storage.sync.get(["isFocusModeOn"], (result) => {
-          if (domain.includes(element) && result.isFocusModeOn) {
-            console.log("Blocked site", domain);
-            chrome.tabs.update(details.tabId, { url: redirectUrl });
-          }
-        });
+      // blockedUrls.forEach((element) => {
+      chrome.storage.sync.get(["isFocusModeOn"], (result) => {
+        // console.log(
+        //   {
+        //     domain,
+        //     element,
+        //   },
+        //   "herex"
+        // );
+
+        if (blockedUrls.includes(domain) && result.isFocusModeOn) {
+          console.log("Blocked site", domain);
+          chrome.tabs.update(details.tabId, { url: redirectUrl });
+        }
+
+        // if (domain.includes(element) && result.isFocusModeOn) {
+        //   console.log("Blocked site", domain);
+        //   chrome.tabs.update(details.tabId, { url: redirectUrl });
+        // }
       });
+      // });
     }
   );
 });
