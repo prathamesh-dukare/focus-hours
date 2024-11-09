@@ -8,7 +8,7 @@ chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
   console.log("onBeforeNavigate", details);
 
   chrome.storage.sync.get(
-    ["blockedUrls", "redirects", "localUrls"],
+    ["blockedUrls", "redirects", "localUrls", "isFocusModeOn"],
     (result) => {
       console.log({
         result,
@@ -20,10 +20,12 @@ chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
       const url = new URL(details.url);
       const domain = url.hostname;
       blockedUrls.forEach((element) => {
-        if (domain.includes(element)) {
-          console.log("Blocked site", domain);
-          chrome.tabs.update(details.tabId, { url: redirectUrl });
-        }
+        chrome.storage.sync.get(["isFocusModeOn"], (result) => {
+          if (domain.includes(element) && result.isFocusModeOn) {
+            console.log("Blocked site", domain);
+            chrome.tabs.update(details.tabId, { url: redirectUrl });
+          }
+        });
       });
     }
   );
