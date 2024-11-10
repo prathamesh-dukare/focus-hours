@@ -5,41 +5,27 @@ const getRandomNumber = (N) => {
 console.log("Background script running");
 
 chrome.webNavigation.onBeforeNavigate.addListener(function (details) {
-  console.log("onBeforeNavigate", details);
+  console.log("onBeforeNavigate details", details);
+  if (details.frameType !== "main_frame") {
+    // Ignore sub-frame navigations (e.g., embedded iframes)
+    return;
+  }
 
   chrome.storage.sync.get(
     ["blockedUrls", "redirects", "localUrls", "isFocusModeOn"],
     (result) => {
-      console.log({
-        result,
-      });
-
       const { blockedUrls, redirects, localUrls } = result;
       const redirectUrl = redirects[getRandomNumber(redirects.length)];
 
       const url = new URL(details.url);
       const domain = url.hostname;
-      // blockedUrls.forEach((element) => {
-      chrome.storage.sync.get(["isFocusModeOn"], (result) => {
-        // console.log(
-        //   {
-        //     domain,
-        //     element,
-        //   },
-        //   "herex"
-        // );
 
+      chrome.storage.sync.get(["isFocusModeOn"], (result) => {
         if (blockedUrls.includes(domain) && result.isFocusModeOn) {
           console.log("Blocked site", domain);
           chrome.tabs.update(details.tabId, { url: redirectUrl });
         }
-
-        // if (domain.includes(element) && result.isFocusModeOn) {
-        //   console.log("Blocked site", domain);
-        //   chrome.tabs.update(details.tabId, { url: redirectUrl });
-        // }
       });
-      // });
     }
   );
 });
